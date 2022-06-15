@@ -40,6 +40,16 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit
 
+      - name: Nuxt generate ⚙️
+        run: npm generate
+
+      - name: deploy to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+
       # - name: Run linter 👀
       #   run: npm run lint
 
