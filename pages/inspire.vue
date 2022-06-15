@@ -6,7 +6,7 @@
         &#8220;First, solve the problem. Then, write the code.&#8221;
         <footer>
           <small>
-            <em>&mdash;John Johnson</em>
+            <em>&mdash;{{ name }}</em>
           </small>
         </footer>
       </blockquote>
@@ -14,8 +14,11 @@
   </v-row>
 </template>
 
-<script>
-export default {
-  name: 'InspirePage',
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
+
+@Component
+export default class Inspire extends Vue {
+  name: string = "Masaki Shinkawa"
 }
 </script>
