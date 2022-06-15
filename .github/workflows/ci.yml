@@ -10,6 +10,9 @@ on:
       - main
       - master
 
+env:
+  BASE_URL: $(echo ${{ github.repository }} | sed -e "s#.*/##")
+
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
