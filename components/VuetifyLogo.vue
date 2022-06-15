@@ -1,6 +1,16 @@
 <template>
-  <img class="vuetify-logo" alt="Vuetify Logo" src="/vuetify-logo.svg" />
+  <img class="vuetify-logo" alt="Vuetify Logo" :src="src" />
 </template>
+
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
+
+@Component
+export default class VuetifyLogo extends Vue {
+  get src() {
+    return `${process.env.BASE_URL}/vuetify-logo.svg`
+  }
+}</script>
 
 <style>
 .vuetify-logo {

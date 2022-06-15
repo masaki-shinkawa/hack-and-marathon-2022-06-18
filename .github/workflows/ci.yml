@@ -41,7 +41,7 @@ jobs:
         run: npm ci --prefer-offline --no-audit
 
       - name: Update Env
-        run: echo "BASE_URL=/${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}/" >> .env
+        run: echo "BASE_URL=/${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> .env
 
       - name: Nuxt generate ⚙️
         run: npm run generate

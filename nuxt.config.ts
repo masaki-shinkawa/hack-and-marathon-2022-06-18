@@ -21,15 +21,17 @@ const config: NuxtConfig = {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: `${process.env.BASE_URL}/favicon.ico`,
+      },
+    ],
   },
 
   router: {
-    base: process.env.BASE_URL || '/',
-  },
-
-  static: {
-    prefix: false,
+    base: process.env.BASE_URL ? `${process.env.BASE_URL}/` : '/',
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -82,6 +84,10 @@ const config: NuxtConfig = {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  env: {
+    BASE_URL: process.env.BASE_URL || '',
+  },
 }
 
 export default config
