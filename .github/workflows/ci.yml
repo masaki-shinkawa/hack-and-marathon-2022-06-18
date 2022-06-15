@@ -41,7 +41,7 @@ jobs:
         run: npm ci --prefer-offline --no-audit
 
       - name: Nuxt generate ⚙️
-        run: npm generate
+        run: npm run generate
 
       - name: deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
