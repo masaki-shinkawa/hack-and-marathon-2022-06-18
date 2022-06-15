@@ -10,9 +10,6 @@ on:
       - main
       - master
 
-env:
-  BASE_URL: $(echo ${{ github.repository }} | sed -e "s#.*/##")
-
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
@@ -42,6 +39,9 @@ jobs:
 
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit
+
+      - name: Update Env
+        run: echo "BASE_URL=/${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}/" >> .env
 
       - name: Nuxt generate ⚙️
         run: npm run generate
