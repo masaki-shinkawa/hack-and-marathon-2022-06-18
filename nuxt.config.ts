@@ -1,8 +1,6 @@
 import { NuxtConfig } from '@nuxt/types'
 import colors from 'vuetify/es5/util/colors'
 
-console.log('base-url', process.env.BASE_URL || '/')
-
 const config: NuxtConfig = {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -28,6 +26,10 @@ const config: NuxtConfig = {
 
   router: {
     base: process.env.BASE_URL || '/',
+  },
+
+  static: {
+    prefix: false,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
