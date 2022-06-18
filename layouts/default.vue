@@ -1,7 +1,7 @@
 <template>
   <v-app class="background">
     <v-main>
-      <v-container>
+      <v-container class="container">
         <Nuxt />
       </v-container>
     </v-main>
@@ -40,5 +40,8 @@ export default {
 <style scoped>
 .background {
   background-color: #002A43;
+}
+.container {
+  padding: 40px 32px 0;
 }
 </style>
