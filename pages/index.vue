@@ -1,6 +1,7 @@
 <template>
-  <Login v-if="isLogin"></Login>
-  <ChallengeStart v-else-if="isChallenge"></ChallengeStart>
+  <Login v-if="!isLogin"></Login>
+  <ChallengeStart v-else-if="isChallengeStart"></ChallengeStart>
+  <ChallengeRun v-else-if="isChallengeRun"></ChallengeRun>
 </template>
 
 <script lang="ts">
@@ -12,9 +13,12 @@ export default class Index extends Vue {
     return this.$store.state.bearer
   }
 
-  get isChallenge() {
+  get isChallengeStart() {
+    return false
+  }
+
+  get isChallengeRun() {
     return true
   }
 }
 </script>
-

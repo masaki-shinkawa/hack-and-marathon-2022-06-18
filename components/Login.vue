@@ -5,7 +5,7 @@
     <div class="fieldset">
       <v-text-field v-model="userName" solo label="ユーザー名" clearable></v-text-field>
       <v-text-field v-model="password" solo label="パスワード" clearable></v-text-field>
-      <v-btn rounded large color="primary" @click="login">ログイン</v-btn>
+      <v-btn rounded large color="primary text-h6" @click="login">ログイン</v-btn>
     </div>
   </div>
 </template>

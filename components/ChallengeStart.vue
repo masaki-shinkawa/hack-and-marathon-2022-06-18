@@ -10,8 +10,8 @@
     </div>
     <span class="f-l bold mt-4">目標距離</span>
     <v-text-field v-model="targetDistance" type="number" class="full-width" solo label="目標距離" clearable></v-text-field>
-    <v-btn large block rounded color="primary" @click="start">ミッション開始</v-btn>
-    <v-btn class="mt-2" large block style="background-color: white;" rounded outlined color="primary" @click="end">
+    <v-btn class="text-h6 bold" large block rounded color="primary" @click="start">ミッション開始</v-btn>
+    <v-btn class="text-h6 mt-2 bold bg-white" large block rounded outlined color="primary" @click="end">
       今日はここまで
     </v-btn>
   </div>
