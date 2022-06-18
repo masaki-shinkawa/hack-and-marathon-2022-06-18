@@ -1,24 +1,30 @@
 <template>
   <Login v-if="!isLogin"></Login>
-  <ChallengeStart v-else-if="isChallengeStart"></ChallengeStart>
-  <ChallengeRun v-else-if="isChallengeRun"></ChallengeRun>
+  <MissionStart v-else-if="isMissionStart"></MissionStart>
+  <MissionRun v-else-if="isMissionRun"></MissionRun>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component } from 'nuxt-property-decorator'
 
 @Component
 export default class Index extends Vue {
+  async asyncData({ store, $geolocation }: any) {
+    const geolocation = await $geolocation()
+    store.commit('setGeolocation', geolocation)
+    await store.dispatch('initialize')
+  }
+
   get isLogin() {
     return this.$store.state.bearer
   }
 
-  get isChallengeStart() {
-    return true
+  get isMissionStart() {
+    return !this.$store.state.isMissionStarted
   }
 
-  get isChallengeRun() {
-    return true
+  get isMissionRun() {
+    return this.$store.state.isMissionStarted
   }
 }
 </script>

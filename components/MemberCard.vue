@@ -1,5 +1,5 @@
 <template>
-  <div class="n-container">
+  <div class="memberCard__container">
     <img v-if="status === 1" class="n-icon" src="@/assets/img/human-male.png" />
     <img v-if="status === 2" class="n-icon" src="@/assets/img/run-fast.png" />
     <img v-if="status === 3" class="n-icon" src="@/assets/img/exit-run.png" />
@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
 @Component
 export default class MemberCard extends Vue {
@@ -32,9 +32,10 @@ export default class MemberCard extends Vue {
 </script>
 
 <style scoped lang="scss">
-.n-container {
+.memberCard__container {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: row;
   background-color: white;
   border-radius: 12px;
@@ -45,7 +46,7 @@ export default class MemberCard extends Vue {
 }
 
 .name__label {
-  color: black;
+  color: #1C1B1F;
   flex: 1;
 }
 
@@ -62,11 +63,11 @@ export default class MemberCard extends Vue {
 }
 
 .metre__label {
-  color: black;
+  color: #1C1B1F;
 }
 
 .metre__unit {
-  color: black;
+  color: #1C1B1F;
 }
 
 .n-icon {
