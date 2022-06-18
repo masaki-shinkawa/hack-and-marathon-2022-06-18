@@ -5,8 +5,8 @@
     <img v-if="status === 3" class="n-icon" src="@/assets/img/exit-run.png" />
     <span class="f-l name__label bold">{{ name }}</span>
     <div class="metre">
-      <span class="f-l metre__label">{{ metre }}</span>
-      <span class="f-s metre__unit">km</span>
+      <span class="f-l metre__label">{{ kiloMetre }}</span>
+      <span class="f-s metre__unit ml-2">km</span>
     </div>
   </div>
 </template>
@@ -24,6 +24,10 @@ export default class MemberCard extends Vue {
 
   @Prop({ type: Number, default: 0 })
   metre!: number
+
+  get kiloMetre(): string {
+    return (this.metre / 1000).toFixed(1)
+  }
 }
 </script>
 

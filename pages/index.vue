@@ -14,7 +14,7 @@ export default class Index extends Vue {
   }
 
   get isChallengeStart() {
-    return false
+    return true
   }
 
   get isChallengeRun() {

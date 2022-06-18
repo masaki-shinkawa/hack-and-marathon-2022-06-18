@@ -7,7 +7,8 @@
     </template>
     <span v-else class="f-xl bold">4km 達成！！</span>
 
-    <div id="map" class="map mb-8" />
+    <div id="map" class="map mb-8"></div>
+
     <template v-if="isComplete">
       <v-btn class="text-h6 bold" large block rounded color="primary" @click="check">ミッション開始</v-btn>
       <v-btn class="text-h6 mt-2 bold bg-white" large block rounded outlined color="primary" @click="end">
@@ -28,6 +29,21 @@ import { Vue, Component } from 'vue-property-decorator'
 
 @Component
 export default class ChallengeRun extends Vue {
+  map?: google.maps.Map
+
+  mounted() {
+    const mapDom = document.getElementById("map")
+    const mapOptions = {
+      center: {
+        lat: 0,
+        lng: 0
+      },
+      zoom: 4
+    };
+    // eslint-disable-next-line no-new
+    new google.maps.Map(mapDom!, mapOptions)
+  }
+
   check() { }
 
   end() { }
@@ -53,6 +69,6 @@ export default class ChallengeRun extends Vue {
 .map {
   width: 100%;
   height: 240px;
-  background-color: gray;
+  display: absolute;
 }
 </style>
